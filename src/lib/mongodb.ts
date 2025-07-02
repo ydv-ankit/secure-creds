@@ -7,8 +7,8 @@ if (!MONGODB_URI) {
 		"Please define the MONGODB_URI environment variable in .env.local"
 	);
 }
-
-let cached = (global as any).mongoose || { conn: null, promise: null };
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const cached = (global as any).mongoose || { conn: null, promise: null };
 
 export async function connectToDatabase() {
 	if (cached.conn) return cached.conn;
@@ -22,6 +22,7 @@ export async function connectToDatabase() {
 			});
 	}
 	cached.conn = await cached.promise;
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	(global as any).mongoose = cached;
 	return cached.conn;
 }

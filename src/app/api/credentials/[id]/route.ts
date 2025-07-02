@@ -62,6 +62,7 @@ export async function PUT(
 			{ credential: decryptedCredential },
 			{ status: 200 }
 		);
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	} catch (error) {
 		return NextResponse.json(
 			{ error: "Failed to update credential" },
@@ -97,6 +98,7 @@ export async function DELETE(
 			{ message: "Credential deleted successfully" },
 			{ status: 200 }
 		);
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	} catch (error) {
 		return NextResponse.json(
 			{ error: "Failed to delete credential" },

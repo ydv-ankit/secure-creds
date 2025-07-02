@@ -64,7 +64,7 @@ export default function DashboardPage() {
 
 	useEffect(() => {
 		fetchCredentials();
-	}, []);
+	}, [fetchCredentials]);
 
 	// Add new credential
 	async function handleAdd(e: React.FormEvent) {
@@ -221,6 +221,7 @@ export default function DashboardPage() {
 			const originalText = `${fieldName} copied!`;
 			setError(originalText);
 			setTimeout(() => setError(""), 2000);
+			// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		} catch (err) {
 			setError("Failed to copy to clipboard");
 		}
