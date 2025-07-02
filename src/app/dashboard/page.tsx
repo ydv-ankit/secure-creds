@@ -64,7 +64,7 @@ export default function DashboardPage() {
 
 	useEffect(() => {
 		fetchCredentials();
-	}, [fetchCredentials]);
+	}, []);
 
 	// Add new credential
 	async function handleAdd(e: React.FormEvent) {
