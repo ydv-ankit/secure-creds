@@ -220,24 +220,6 @@ secure-creds/
 - **Loading states** for better UX
 - **Automatic redirects** based on authentication status
 
-## 🚀 Deployment
-
-### Vercel (Recommended)
-
-1. **Push to GitHub**
-2. **Connect to Vercel**
-3. **Add Environment Variables** in Vercel dashboard
-4. **Deploy**
-
-### Other Platforms
-
-The application can be deployed to any platform that supports Next.js:
-
-- **Netlify**
-- **Railway**
-- **DigitalOcean App Platform**
-- **AWS Amplify**
-
 ## 🔧 Development
 
 ### Available Scripts
@@ -248,9 +230,6 @@ npm run dev          # Start development server
 npm run build        # Build for production
 npm run start        # Start production server
 npm run lint         # Run ESLint
-
-# Database
-npm run db:seed      # Seed database (if implemented)
 ```
 
 ### Code Style
@@ -267,26 +246,5 @@ npm run db:seed      # Seed database (if implemented)
 3. **Commit your changes** (`git commit -m 'Add amazing feature'`)
 4. **Push to the branch** (`git push origin feature/amazing-feature`)
 5. **Open a Pull Request**
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🆘 Support
-
-If you encounter any issues or have questions:
-
-1. **Check the documentation** above
-2. **Search existing issues** in the repository
-3. **Create a new issue** with detailed information
-
-## 🙏 Acknowledgments
-
-- **Next.js team** for the amazing framework
-- **Vercel** for hosting and deployment
-- **MongoDB** for the database solution
-- **Tailwind CSS** for the styling framework
-
----
 
 **Built with ❤️ using Next.js 15 and MongoDB**
