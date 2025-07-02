@@ -37,7 +37,7 @@ export default function DashboardPage() {
 	// Check auth
 	useEffect(() => {
 		if (typeof window !== "undefined" && !localStorage.getItem("token")) {
-			router.push("/login");
+			router.push("/");
 		}
 	}, [router]);
 
@@ -52,6 +52,10 @@ export default function DashboardPage() {
 		const data = await res.json();
 		if (res.ok) {
 			setCredentials(data.credentials);
+		} else if (res.status === 401) {
+			// If unauthorized, redirect to home page
+			localStorage.removeItem("token");
+			router.push("/");
 		} else {
 			setError(data.error || "Failed to fetch credentials");
 		}
@@ -82,6 +86,10 @@ export default function DashboardPage() {
 			setPassword("");
 			setOther("");
 			fetchCredentials();
+		} else if (res.status === 401) {
+			// If unauthorized, redirect to home page
+			localStorage.removeItem("token");
+			router.push("/");
 		} else {
 			const data = await res.json();
 			setError(data.error || "Failed to add credential");
@@ -102,6 +110,10 @@ export default function DashboardPage() {
 		const data = await res.json();
 		if (res.ok) {
 			setCredentials(data.credentials);
+		} else if (res.status === 401) {
+			// If unauthorized, redirect to home page
+			localStorage.removeItem("token");
+			router.push("/");
 		} else {
 			setError(data.error || "Search failed");
 		}
@@ -109,7 +121,7 @@ export default function DashboardPage() {
 
 	function handleLogout() {
 		localStorage.removeItem("token");
-		router.push("/login");
+		router.push("/");
 	}
 
 	// Start editing a credential
@@ -155,6 +167,10 @@ export default function DashboardPage() {
 		if (res.ok) {
 			cancelEdit();
 			fetchCredentials();
+		} else if (res.status === 401) {
+			// If unauthorized, redirect to home page
+			localStorage.removeItem("token");
+			router.push("/");
 		} else {
 			const data = await res.json();
 			setError(data.error || "Failed to update credential");
@@ -174,6 +190,10 @@ export default function DashboardPage() {
 
 		if (res.ok) {
 			fetchCredentials();
+		} else if (res.status === 401) {
+			// If unauthorized, redirect to home page
+			localStorage.removeItem("token");
+			router.push("/");
 		} else {
 			const data = await res.json();
 			setError(data.error || "Failed to delete credential");
